@@ -3,8 +3,8 @@ return {
         "rose-pine/neovim",
         name = "rose-pine",
         config = function()
-            require('rose-pine').setup({
-                variant = 'main',
+            require("rose-pine").setup({
+                variant = "main",
                 extend_background_behind_borders = false,
 
                 styles = {
@@ -13,19 +13,18 @@ return {
                 },
 
                 groups = {
-                    border = 'overlay',
+                    border = "overlay",
                 },
 
                 highlight_groups = {
-                    Directory = { fg = 'foam' },
-                    ['@punctuation'] = { fg = 'muted' },
-                    ['@constant.macro'] = { fg = 'iris' },
-                    ['@punctuation.delimiter'] = { fg = 'muted' },
-                    ['@punctuation.bracket'] = { fg = 'muted' },
+                    Directory = { fg = "foam" },
+                    ["@punctuation"] = { fg = "muted" },
+                    ["@constant.macro"] = { fg = "iris" },
+                    ["@punctuation.delimiter"] = { fg = "muted" },
+                    ["@punctuation.bracket"] = { fg = "muted" },
                 },
             })
-            vim.cmd('colorscheme rose-pine')
+            vim.cmd.colorscheme("rose-pine")
         end
     }
 }
-

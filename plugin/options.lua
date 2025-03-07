@@ -1,4 +1,5 @@
 local opt = vim.opt
+local autocmd = vim.api.nvim_create_autocmd
 
 opt.guicursor = 'n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20'
 
@@ -35,6 +36,20 @@ opt.splitbelow = true
 opt.signcolumn = 'no'
 
 opt.cmdheight = 1
+
+autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "r", "o" })
+    end,
+})
+
+autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+})
 
 vim.g.c_syntax_for_h = true
 
