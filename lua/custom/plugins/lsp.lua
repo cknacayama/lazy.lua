@@ -2,16 +2,15 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            -- LSP Support
-            "williamboman/mason.nvim",           -- Optional
-            "williamboman/mason-lspconfig.nvim", -- Optional
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
 
             -- Autocompletion
-            "hrsh7th/nvim-cmp",     -- Required
-            "hrsh7th/cmp-nvim-lsp", -- Required
+            "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
             require("custom.lsp")
-        end
+        end,
     },
 }

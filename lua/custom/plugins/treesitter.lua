@@ -5,6 +5,6 @@ return {
         lazy = false,
         config = function()
             require("custom.treesitter")
-        end
-    }
+        end,
+    },
 }
