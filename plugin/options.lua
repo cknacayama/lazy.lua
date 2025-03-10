@@ -38,24 +38,3 @@ opt.splitbelow = true
 opt.signcolumn = "no"
 
 opt.cmdheight = 1
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
-    callback = function()
-        vim.opt_local.formatoptions:remove({ "r", "o" })
-    end,
-})
-
-vim.g.netrw_banner = false
-
-vim.filetype.add({
-    extension = {
-        i = "c",
-        mips = "mips",
-        ll = "llvm",
-        cl = "cool",
-        vert = "glsl",
-        geom = "glsl",
-        frag = "glsl"
-    }
-})

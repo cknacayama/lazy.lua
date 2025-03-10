@@ -24,6 +24,7 @@ return {
                     ["@punctuation.bracket"] = { fg = "muted" },
                 },
             })
+
             vim.cmd.colorscheme("rose-pine")
         end
     }

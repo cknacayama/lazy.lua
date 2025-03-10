@@ -17,6 +17,8 @@ cmp.setup({
     sources = {
         { name = "nvim_lsp" },
         { name = "buffer" },
+        { name = "path" },
+        { name = "snippets" },
     },
     mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
@@ -33,12 +35,12 @@ cmp.setup({
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
-        local opts = { buffer = args.buf }
+        local opts = { buffer = args.buf, remap = false }
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
         vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
         vim.keymap.set("n", "gf", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
@@ -47,9 +49,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
         vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*",
+            buffer = args.buf,
             callback = function()
-                vim.lsp.buf.format()
+                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
             end,
         })
     end

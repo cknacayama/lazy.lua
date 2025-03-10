@@ -2,7 +2,9 @@
 
 local set = vim.keymap.set
 
-set("n", "<leader>pv", vim.cmd.Ex)
+set("n", "<leader>pv", function()
+    vim.cmd("Oil")
+end)
 
 set("n", "<C-d>", [[<C-d>zz]])
 set("n", "<C-u>", [[<C-u>zz]])
