@@ -17,8 +17,6 @@ set("v", "K", [[:m '<-2<CR>gv=gv]])
 
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-set("n", "<leader><leader>", vim.cmd.so)
-
 set({ "n", "v" }, "<leader>y", [["+y]])
 set("n", "<leader>Y", [["+Y]])
 set("n", "<leader>v", [["+p]])

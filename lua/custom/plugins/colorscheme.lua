@@ -18,6 +18,7 @@ return {
 
                 highlight_groups = {
                     Directory = { fg = "foam" },
+                    SnippetTabstop = { inherit = false },
                     ["@punctuation"] = { fg = "muted" },
                     ["@constant.macro"] = { fg = "iris" },
                     ["@punctuation.delimiter"] = { fg = "muted" },

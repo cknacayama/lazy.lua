@@ -1,33 +1,13 @@
 return {
     {
-        "hrsh7th/nvim-cmp",
-        lazy = false,
-        dependencies = {
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-buffer",
+        "saghen/blink.cmp",
+        version = "*",
+        opts = {
+            appearance = {
+                use_nvim_cmp_as_default = false,
+                nerd_font_variant = "mono",
+            },
+            fuzzy = { implementation = "prefer_rust_with_warning" },
         },
-        config = function()
-            local cmp = require("cmp")
-            local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-            cmp.setup({
-                sources = {
-                    { name = "nvim_lsp" },
-                    { name = "buffer" },
-                    { name = "path" },
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-                    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                }),
-                snippet = {
-                    expand = function(args)
-                        vim.snippet.expand(args.body)
-                    end,
-                },
-            })
-        end,
     },
 }
