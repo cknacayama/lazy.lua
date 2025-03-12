@@ -1,9 +1,10 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        event = { "BufReadPost", "BufNewFile" },
+        cmd = { "LspInfo", "LspInstall", "LspUninstall" },
         dependencies = {
-            -- Autocompletion
-            "saghen/blink.cmp",
+            -- "saghen/blink.cmp",
         },
         config = function()
             require("custom.lsp")
