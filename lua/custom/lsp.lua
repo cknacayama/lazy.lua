@@ -68,7 +68,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-lspconfig.rust_analyzer.setup({})
+lspconfig.rust_analyzer.setup({
+    -- settings = {
+    --     ["rust-analyzer"] = {
+    --         check = {
+    --             command = "clippy",
+    --         },
+    --     },
+    -- },
+})
+lspconfig.ts_ls.setup({})
+lspconfig.pyright.setup({})
+lspconfig.texlab.setup({})
 lspconfig.clangd.setup({
     cmd = { "clangd-21", "--header-insertion=never" },
 })

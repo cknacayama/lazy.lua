@@ -14,5 +14,6 @@ vim.filetype.add({
         vert = "glsl",
         geom = "glsl",
         frag = "glsl",
+        isa = "isa",
     },
 })
