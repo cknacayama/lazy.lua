@@ -8,14 +8,11 @@
 (character_literal) @string
 
 (identifier) @variable
-((identifier) @constructor
- (#lua-match? @constructor "^[A-Z]"))
+((identifier) @type
+ (#lua-match? @type "^[A-Z]"))
 (root_identifier) @variable
 ((root_identifier) @constructor
  (#lua-match? @constructor "^[A-Z]"))
-(type_identifier) @type
-((type_identifier) @variable
- (#lua-match? @variable "^[a-z_]"))
 (module_identifier) @namespace
 ((module_identifier) @type
  (#lua-match? @type "^[A-Z]"))
@@ -53,7 +50,7 @@
 
 (value_definition
 	name: (identifier) @function
-    (function_type))
+    value_type: (function_type))
 
 [
   "type"
@@ -99,6 +96,7 @@
   "|"
   ","
   "->"
+  "=>"
   ":"
   "::"
   "\\"

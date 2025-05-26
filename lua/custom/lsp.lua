@@ -69,19 +69,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 lspconfig.rust_analyzer.setup({
-    -- settings = {
-    --     ["rust-analyzer"] = {
-    --         check = {
-    --             command = "clippy",
-    --         },
-    --     },
-    -- },
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                targetDir = true,
+            },
+        },
+    },
 })
 lspconfig.ts_ls.setup({})
 lspconfig.pyright.setup({})
 lspconfig.texlab.setup({})
 lspconfig.clangd.setup({
     cmd = { "clangd-21", "--header-insertion=never" },
+})
+lspconfig.mlir_lsp_server.setup({
+    cmd = { "cir-lsp-server" },
 })
 
 lspconfig.lua_ls.setup({
@@ -118,3 +121,4 @@ vim.diagnostic.config({
     virtual_text = true,
     severity_sort = true,
 })
+vim.lsp.set_log_level("off")
