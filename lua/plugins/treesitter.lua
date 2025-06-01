@@ -12,9 +12,11 @@ return {
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
             parser_config.isa = {
                 install_info = {
-                    url = "~/tree-sitter/tree-sitter-isa",
+                    url = "https://github.com/cknacayama/tree-sitter-isa.git",
                     files = { "src/parser.c" },
-                    requires_generate_from_grammar = true, -- if folder contains pre-generated src/parser.c
+                    branch = "main",
+                    generate_requires_npm = false,
+                    requires_generate_from_grammar = false,
                 },
             }
         end,
